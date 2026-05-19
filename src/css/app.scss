@@ -1,0 +1,81 @@
+.page {
+  padding: 16px 16px 96px 16px;
+}
+
+.section-container {
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.zaui-list-item {
+  cursor: pointer;
+}
+
+.booth-item {
+  position: absolute;
+  width: 3.5%;
+  height: 5%;
+  /* background-color: rgba(0, 150, 255, 0.2); // Bật cái này lên để debug xem box có đè đúng ảnh không */
+  border-radius: 4px;
+  z-index: 10;
+}
+
+/* Container bọc ảnh */
+.map-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Điều chỉnh tỷ lệ để cắt phần chú thích bên phải */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.map-image {
+  width: 180%; /* Phóng lớn để đẩy phần chú thích ra ngoài khung hình */
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: left top; /* Giữ phần bản đồ bên trái */
+}
+
+/* Hiệu ứng Pulse cho Booth */
+.booth-hotspot {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booth-hotspot::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 104, 255, 0.4);
+  border-radius: 50%;
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.booth-inner {
+  width: 8px;
+  height: 8px;
+  background-color: #0068FF;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  z-index: 11;
+}
