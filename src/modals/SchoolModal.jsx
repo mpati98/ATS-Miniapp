@@ -9,6 +9,7 @@ const resolveLogoUrl = (logo) => {
   if (logo.startsWith("http://") || logo.startsWith("https://")) {
     return logo;
   }
+
   try {
     return new URL(logo, import.meta.url).href;
   } catch {
@@ -165,7 +166,7 @@ export default function SchoolModal({ school, onClose, onOpenScholarships }) {
               style={{
                 fontSize: 12,
                 fontWeight: 700,
-                color: "000",
+                color: "#000",
                 marginBottom: 3,
               }}
             >
