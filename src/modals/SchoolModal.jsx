@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BRAND } from "../static/constants";
-import { universitiesHN } from "../static/univesities";
+import { scholarships } from "../static/scholarships";
+import { universities } from "../static/institutions";
 
 // Get school logo
 const resolveLogoUrl = (logo) => {
@@ -17,11 +18,7 @@ const resolveLogoUrl = (logo) => {
 
 const getSchoolLogoUrl = (school) => {
   if (!school) return null;
-  const logo =
-    school.logo ||
-    school.logoUrl ||
-    universitiesHN.find((u) => u.name === school.name)?.logo ||
-    null;
+  const logo = universities.find((u) => u.Name === school.name)?.Logo || null;
   return resolveLogoUrl(logo);
 };
 
@@ -29,48 +26,57 @@ const getSchoolLink = (school) => {
   if (!school) return null;
   return (
     school.link ||
-    universitiesHN.find((u) => u.name === school.name)?.link ||
+    universities.find((u) => u.Name === school.name)?.Link ||
     null
   );
 };
 
-const getSchoolCity = (school) => {
+const getSchoolState = (school) => {
   if (!school) return null;
-  return (
-    school.city ||
-    universitiesHN.find((u) => u.name === school.name)?.city ||
-    null
-  );
+  return universities.find((u) => u.Name === school.name)?.State || null;
 };
 
 const getSchoolRank = (school) => {
   if (!school) return null;
-  return (
-    school.rank ||
-    universitiesHN.find((u) => u.name === school.name)?.rank ||
-    null
-  );
+  return universities.find((u) => u.Name === school.name)?.Rank || null;
 };
 
 const getSchoolBooth = (school) => {
   if (!school) return null;
-  return (
-    school.booth ||
-    universitiesHN.find((u) => u.name === school.name)?.booth ||
-    null
-  );
+  return universities.find((u) => u.Name === school.name)?.Booth || null;
 };
 
-export default function SchoolModal({ school, onClose }) {
+const getRelatedScholarships = (school) => {
+  if (!school?.name) return [];
+  const schoolName = school.name.toLowerCase();
+  return scholarships.filter((s) => {
+    const institution = (s.Institution || "").toLowerCase();
+    const title = (s.Name || "").toLowerCase();
+    if (!institution) return false;
+    if (
+      institution === schoolName ||
+      institution.includes(schoolName) ||
+      schoolName.includes(institution)
+    ) {
+      return true;
+    }
+    return title.includes(schoolName);
+  });
+};
+
+export default function SchoolModal({ school, onClose, onOpenScholarships }) {
   const [logoError, setLogoError] = useState(false);
 
   if (!school) return null;
 
   const schoolLink = getSchoolLink(school);
   const schoolRank = getSchoolRank(school);
-  const schoolCity = getSchoolCity(school);
+  const schoolState = getSchoolState(school);
   const schoolBooth = getSchoolBooth(school);
   const schoolLogoUrl = !logoError ? getSchoolLogoUrl(school) : null;
+
+  const relatedScholarships = getRelatedScholarships(school);
+  const relatedPreview = relatedScholarships.slice(0, 2);
 
   const handleOpenLink = () => {
     if (schoolLink) {
@@ -78,6 +84,11 @@ export default function SchoolModal({ school, onClose }) {
     } else {
       onClose?.();
     }
+  };
+
+  const handleOpenScholarshipTab = () => {
+    onClose?.();
+    onOpenScholarships?.(school.name);
   };
 
   return (
@@ -113,7 +124,6 @@ export default function SchoolModal({ school, onClose }) {
             margin: "0 auto 18px",
           }}
         />
-
         {/* School name header */}
         <div
           style={{
@@ -155,7 +165,7 @@ export default function SchoolModal({ school, onClose }) {
               style={{
                 fontSize: 12,
                 fontWeight: 700,
-                color: school.stateColor,
+                color: "000",
                 marginBottom: 3,
               }}
             >
@@ -169,11 +179,10 @@ export default function SchoolModal({ school, onClose }) {
                 lineHeight: 1.3,
               }}
             >
-              {schoolCity}
+              {schoolState}
             </div>
           </div>
         </div>
-
         {/* Info row */}
         <div
           style={{
@@ -199,9 +208,7 @@ export default function SchoolModal({ school, onClose }) {
             📍 Booth {schoolBooth}
           </div>
         </div>
-
-        {/* CTA */}
-        <div
+        {/* <div
           style={{
             background: BRAND.lightBlue,
             borderRadius: 12,
@@ -209,11 +216,81 @@ export default function SchoolModal({ school, onClose }) {
             marginBottom: 16,
           }}
         >
-          <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.blue }}>
-            💡 Đến gặp đại diện nhà trường tại booth để được tư vấn trực tiếp về
-            học phí, học bổng và lộ trình nhập học!
+          {/* <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.blue }}>
+            💡 Trường đang có nhiều học bổng, xem ngay!
+          </div> 
+        </div> */}
+
+        <div style={{ marginBottom: 16 }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: 10,
+            }}
+          >
+            <div style={{ fontWeight: 800, fontSize: 13 }}>
+              Học bổng nổi bật
+            </div>
+            {relatedScholarships.length > 2 && (
+              <div style={{ fontSize: 11, color: "#666" }}>
+                {relatedScholarships.length} học bổng
+              </div>
+            )}
           </div>
+
+          {relatedPreview.length > 0 ? (
+            relatedPreview.map((item) => (
+              <div
+                key={item.Scholarship_ID}
+                style={{
+                  borderRadius: 12,
+                  border: "1px solid #eee",
+                  padding: 12,
+                  marginBottom: 10,
+                  background: "#fff",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: "#1a1a2e",
+                    marginBottom: 4,
+                  }}
+                >
+                  {item.Name}
+                </div>
+                <div style={{ fontSize: 12, color: "#666" }}>
+                  {item.Value || "Liên hệ ATS"} · {item.Level || "N/A"}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div style={{ fontSize: 12, color: "#666" }}>
+              Chưa tìm thấy học bổng liên quan cho trường này.
+            </div>
+          )}
         </div>
+
+        <button
+          onClick={handleOpenScholarshipTab}
+          style={{
+            width: "100%",
+            padding: 12,
+            borderRadius: 12,
+            background: BRAND.blue,
+            color: "white",
+            fontWeight: 800,
+            fontSize: 15,
+            border: "none",
+            cursor: "pointer",
+            marginBottom: schoolLink ? 10 : 0,
+          }}
+        >
+          Xem học bổng của trường
+        </button>
 
         <button
           onClick={handleOpenLink}
@@ -221,7 +298,7 @@ export default function SchoolModal({ school, onClose }) {
             width: "100%",
             padding: 12,
             borderRadius: 12,
-            background: BRAND.blue,
+            background: schoolLink ? "#1a1a2e" : BRAND.blue,
             color: "white",
             fontWeight: 800,
             fontSize: 15,

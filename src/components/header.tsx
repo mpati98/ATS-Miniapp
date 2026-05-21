@@ -1,3 +1,4 @@
+import Logo from "./logo";
 import { BRAND, EVENT } from "@/static/constants";
 
 export default function Header() {
@@ -11,6 +12,20 @@ export default function Header() {
         overflow: "hidden",
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          top: 16,
+          right: 16,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 96,
+          height: 36,
+        }}
+      >
+        <Logo style={{ width: "100%", height: "auto", color: "white" }} />
+      </div>
       <div
         style={{
           position: "absolute",
@@ -41,21 +56,22 @@ export default function Header() {
           opacity: 0.75,
           textTransform: "uppercase",
           marginBottom: 5,
+          marginTop: 10,
         }}
       >
         {EVENT.name}
       </div>
       <div
         style={{
-          fontSize: 22,
-          fontWeight: 800,
+          fontSize: 25,
+          fontWeight: 900,
           lineHeight: 1.2,
           marginBottom: 6,
         }}
       >
-        {EVENT.edition} 🌏
+        {EVENT.edition}
         <br />
-        <span style={{ color: BRAND.orange }}>ATS Study Fair</span>
+        <span style={{ color: BRAND.orange, fontSize: 30 }}>2026</span>
       </div>
       <div style={{ fontSize: 12, opacity: 0.8 }}>
         🗓 {EVENT.dates} &nbsp;·&nbsp; 📍 {EVENT.venue}

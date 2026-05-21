@@ -8,8 +8,8 @@ export const BRAND = {
  
 export const EVENT = {
   name:     "Lễ hội Du học & Học bổng 2026",
-  edition:  "May Fair 2026",
-  dates:    "30 Tháng 5, 2026",
+  edition:  "ATS May Festival",
+  dates:    "30/05/2026",
   venue:    "Du Parc Hotel, P. Hai Bà Trưng – Hà Nội",
 };
 

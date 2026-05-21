@@ -14,13 +14,26 @@ export default function App() {
   const [tab, setTab] = useState("home");
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [selectedScholarship, setSelectedScholarship] = useState(null);
+  const [scholarshipSearch, setScholarshipSearch] = useState("");
 
   const handleTabChange = (newTab) => {
     setTab(newTab);
+    if (newTab !== "scholarships") {
+      setScholarshipSearch("");
+    }
   };
 
   const handleNavigate = (newTab) => {
     setTab(newTab);
+    if (newTab !== "scholarships") {
+      setScholarshipSearch("");
+    }
+  };
+
+  const openScholarshipsForSchool = (schoolName) => {
+    setSelectedSchool(null);
+    setScholarshipSearch(schoolName || "");
+    setTab("scholarships");
   };
 
   return (
@@ -46,9 +59,14 @@ export default function App() {
       <div style={{ padding: "0 16px" }}>
         {tab === "home" && <HomeTab onNavigate={handleNavigate} />}
         {tab === "schools" && <SchoolsTab onSelectSchool={setSelectedSchool} />}
-        {tab === "majors" && <MajorsTab />}
+        {tab === "majors" && (
+          <MajorsTab onOpenScholarships={openScholarshipsForSchool} />
+        )}
         {tab === "scholarships" && (
-          <ScholarshipsTab onSelect={setSelectedScholarship} />
+          <ScholarshipsTab
+            onSelect={setSelectedScholarship}
+            initialSearch={scholarshipSearch}
+          />
         )}
         {tab === "map" && <MapTab onSelectSchool={setSelectedSchool} />}
       </div>
@@ -59,6 +77,7 @@ export default function App() {
       <SchoolModal
         school={selectedSchool}
         onClose={() => setSelectedSchool(null)}
+        onOpenScholarships={openScholarshipsForSchool}
       />
       <ScholarshipModal
         scholarship={selectedScholarship}

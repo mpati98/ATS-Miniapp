@@ -1,11 +1,47 @@
-import { useState } from "react";
-import { countries } from "../static/schools";
-import mapImage from "../static/mapHN.jpg";
+import { useMemo, useState } from "react";
+import { countries } from "../static/countries";
+import { universities } from "../static/institutions";
+import mapImage from "../static/MapHN.webp";
 
 const MAP_IMAGE_SRC = mapImage;
 
+const findInstitution = (name) => {
+  if (!name) return null;
+  const key = name.trim().toLowerCase();
+  return (
+    universities.find((u) => u.Name?.trim().toLowerCase() === key) ||
+    universities.find((u) => u.Name?.trim().toLowerCase().includes(key)) ||
+    universities.find((u) => key.includes(u.Name?.trim().toLowerCase())) ||
+    null
+  );
+};
+
 export default function MapTab({ onSelectSchool }) {
   const [expandedState, setExpandedState] = useState(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [fullscreenScale, setFullscreenScale] = useState(1);
+
+  const groupedCountries = useMemo(
+    () =>
+      countries.map((country) => ({
+        ...country,
+        states: country.states.map((state) => ({
+          ...state,
+          schools: state.schools.map((name) => {
+            const institution = findInstitution(name);
+            return {
+              name,
+              booth: institution?.Booth || "",
+              link: institution?.Link || null,
+              rank: institution?.Rank || "",
+              color: institution?.Color || state.color,
+              flag: institution?.Flag || country.flag,
+            };
+          }),
+        })),
+      })),
+    [],
+  );
 
   return (
     <div style={{ paddingTop: 16 }}>
@@ -19,9 +55,6 @@ export default function MapTab({ onSelectSchool }) {
       >
         Sơ đồ Booth
       </div>
-      <div style={{ fontSize: 12, color: "#888", marginBottom: 14 }}>
-        📍 Hà Nội, 2026 · Sảnh chính
-      </div>
 
       {/* Map image */}
       <div
@@ -30,18 +63,42 @@ export default function MapTab({ onSelectSchool }) {
           borderRadius: 16,
           padding: 8,
           marginBottom: 16,
-          overflowX: "auto",
+          overflow: "hidden",
+          minHeight: 260,
+          maxHeight: "65vh",
         }}
       >
-        <img
-          src={MAP_IMAGE_SRC}
-          alt="Sơ đồ booth sự kiện"
-          style={{ width: "100%", borderRadius: 10, display: "block" }}
-          onError={(e) => {
-            e.target.style.display = "none";
-            e.target.nextSibling.style.display = "flex";
+        <div
+          style={{
+            overflow: "auto",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#f9f9fb",
           }}
-        />
+        >
+          <img
+            src={MAP_IMAGE_SRC}
+            alt="Sơ đồ booth sự kiện"
+            style={{
+              width: "100%",
+              maxWidth: 980,
+              borderRadius: 10,
+              display: "block",
+              cursor: "zoom-in",
+            }}
+            onClick={() => {
+              setFullscreenScale(1);
+              setIsFullscreen(true);
+            }}
+            onError={(e) => {
+              e.target.style.display = "none";
+              e.target.nextSibling.style.display = "flex";
+            }}
+          />
+        </div>
         <div
           style={{
             display: "none",
@@ -69,49 +126,56 @@ export default function MapTab({ onSelectSchool }) {
         </div>
       </div>
 
-      {/* Khu vực legend */}
-      <div
-        style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}
-      >
-        {[
-          {
-            label: "Sảnh ngoài",
-            color: "#16A34A",
-            bg: "#F0FDF4",
-            desc: "Check-in · Quà",
-          },
-          {
-            label: "Sảnh trong",
-            color: "#475569",
-            bg: "#F8FAFC",
-            desc: "Visa · ATS · Partners",
-          },
-          {
-            label: "Phòng booth",
-            color: "#0E7DBB",
-            bg: "#E9F7FF",
-            desc: "Booth trường học",
-          },
-        ].map((z) => (
+      {isFullscreen && (
+        <div
+          onClick={() => setIsFullscreen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 999,
+            background: "rgba(0,0,0,0.85)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+            cursor: "zoom-out",
+          }}
+        >
           <div
-            key={z.label}
             style={{
-              flex: 1,
-              background: z.bg,
-              border: `1.5px solid ${z.color}44`,
-              borderRadius: 10,
-              padding: "6px 8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 24,
+              pointerEvents: "none",
             }}
           >
-            <div style={{ fontSize: 9, fontWeight: 800, color: z.color }}>
-              {z.label}
-            </div>
-            <div style={{ fontSize: 8, color: "#888", marginTop: 1 }}>
-              {z.desc}
-            </div>
+            <img
+              src={MAP_IMAGE_SRC}
+              alt="Sơ đồ booth sự kiện fullscreen"
+              style={{
+                width: "auto",
+                maxWidth: "100%",
+                maxHeight: "100%",
+                transform: `scale(${fullscreenScale})`,
+                transformOrigin: "center center",
+                borderRadius: 12,
+                boxShadow: "0 16px 40px rgba(0,0,0,0.35)",
+                cursor: fullscreenScale === 1 ? "zoom-out" : "grab",
+                pointerEvents: "auto",
+              }}
+              onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => {
+                e.preventDefault();
+                const delta = e.deltaY > 0 ? -0.1 : 0.1;
+                setFullscreenScale((prev) =>
+                  Math.min(3, Math.max(1, Number((prev + delta).toFixed(2)))),
+                );
+              }}
+            />
           </div>
-        ))}
-      </div>
+        </div>
+      )}
 
       {/* Directory by country & state */}
       <div
@@ -125,7 +189,7 @@ export default function MapTab({ onSelectSchool }) {
         Tra cứu theo vùng
       </div>
 
-      {countries.map((c) => (
+      {groupedCountries.map((c) => (
         <div key={c.id} style={{ marginBottom: 12 }}>
           {/* Country header */}
           <div
@@ -171,7 +235,7 @@ export default function MapTab({ onSelectSchool }) {
                     <div
                       style={{ fontWeight: 800, fontSize: 12, color: s.color }}
                     >
-                      {s.abbr} · {s.name}
+                      {s.label}
                     </div>
                     <div style={{ fontSize: 11, color: "#999" }}>
                       {s.schools.length} trường
@@ -191,22 +255,25 @@ export default function MapTab({ onSelectSchool }) {
                 </div>
                 {open && (
                   <div style={{ background: "white", padding: "8px 12px" }}>
-                    {s.schools.map((name, i) => (
+                    {s.schools.map((school, i) => (
                       <div
                         key={i}
                         onClick={() =>
                           onSelectSchool?.({
-                            name,
+                            name: school.name,
                             state: s.name,
-                            stateColor: s.color,
+                            stateColor: school.color,
                             stateBg: s.bg,
                             stateAbbr: s.abbr,
+                            booth: school.booth,
+                            link: school.link,
+                            rank: school.rank,
                           })
                         }
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: 8,
+                          gap: 10,
                           padding: "7px 6px",
                           borderBottom:
                             i < s.schools.length - 1
@@ -220,19 +287,30 @@ export default function MapTab({ onSelectSchool }) {
                             width: 6,
                             height: 6,
                             borderRadius: "50%",
-                            background: s.color,
+                            background: school.color,
                             flexShrink: 0,
                           }}
                         />
-                        <div
-                          style={{
-                            fontSize: 13,
-                            fontWeight: 600,
-                            color: "#1a1a2e",
-                            flex: 1,
-                          }}
-                        >
-                          {name}
+                        <div style={{ flex: 1 }}>
+                          <div
+                            style={{
+                              fontSize: 13,
+                              fontWeight: 600,
+                              color: "#1a1a2e",
+                            }}
+                          >
+                            {school.name}
+                          </div>
+                          <div
+                            style={{
+                              fontSize: 11,
+                              color: "#888",
+                              marginTop: 2,
+                            }}
+                          >
+                            Booth {school.booth || "—"}
+                            {school.rank ? ` · ${school.rank}` : ""}
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -241,48 +319,6 @@ export default function MapTab({ onSelectSchool }) {
               </div>
             );
           })}
-
-          {/* Global orgs – flat */}
-          {c.id === "global" && (
-            <div
-              style={{
-                background: "white",
-                borderRadius: 12,
-                padding: "10px 14px",
-                border: "1.5px solid #e0e0e0",
-              }}
-            >
-              {c.schools.map((s, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: 10,
-                    padding: "8px 0",
-                    borderBottom:
-                      i < c.schools.length - 1 ? "1px solid #f5f5f5" : "none",
-                  }}
-                >
-                  <span style={{ fontSize: 16 }}>🌏</span>
-                  <div>
-                    <div
-                      style={{
-                        fontWeight: 700,
-                        fontSize: 13,
-                        color: "#1a1a2e",
-                      }}
-                    >
-                      {s.name}
-                    </div>
-                    <div style={{ fontSize: 11, color: "#888", marginTop: 2 }}>
-                      {s.desc}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       ))}
     </div>

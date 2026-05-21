@@ -1,6 +1,6 @@
 import { scholarships } from "@/static/scholarships";
 import { majors } from "@/static/majors";
-import { countries } from "@/static/schools";
+import { countries } from "@/static/countries";
 import { BRAND } from "@/static/constants";
 const totalSchools = countries.reduce((acc, c) => {
   if (c.states) return acc + c.states.reduce((a, s) => a + s.schools.length, 0);
@@ -32,7 +32,7 @@ const QUICK_LINKS = [
   {
     icon: "🗺️",
     label: "Sơ đồ sảnh chính thức",
-    sub: "3 khu: Ngoài · Trong · Booth",
+    sub: "Check-in, hội thảo · Booth trường",
     t: "map",
     color: "#15803D",
   },
@@ -44,9 +44,8 @@ export default function HomeTab({ onNavigate }) {
       {/* Stats */}
       <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
         {[
-          { l: "Trường", v: `${totalSchools}+`, i: "🎓" },
-          { l: "Học bổng", v: "7+", i: "🏆" },
-          { l: "Ngành học", v: `${majors.length}`, i: "📖" },
+          { l: "Trường", v: "50+", i: "🎓" },
+          { l: "Học bổng", v: "70+", i: "🏆" },
         ].map((s) => (
           <div
             key={s.l}
@@ -162,10 +161,10 @@ export default function HomeTab({ onNavigate }) {
             <span style={{ fontSize: 28 }}>{c.flag}</span>
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: 800, fontSize: 14, color: "#1a1a2e" }}>
-                {c.name}
+                {c.label}
               </div>
               <div style={{ fontSize: 12, color: "#888", marginTop: 2 }}>
-                {c.description}
+                {c.intro}
               </div>
             </div>
             <div style={{ textAlign: "right" }}>

@@ -14,10 +14,10 @@ export const majors = [
         label: "🇦🇺 Bang New South Wales",
         schools: [
           "Macquarie University",
-          "University of New South Wales (UNSW)",
-          "University of Technology Sydney & UTS College",
+          "University of New South Wales",
+          "University of Technology Sydney",
           "University of Newcastle",
-          "University of Wollongong Australia & UOW College",
+          "University of Wollongong",
           "Western Sydney University",
         ],
       },
@@ -26,7 +26,7 @@ export const majors = [
         schools: [
           "Monash University",
           "RMIT University",
-          "The University of Melbourne & Trinity College",
+          "The University of Melbourne",
           "Deakin University",
           "La Trobe University",
           "Swinburne University of Technology",
@@ -38,7 +38,7 @@ export const majors = [
         label: "🇦🇺 Bang Queensland",
         schools: [
           "The University of Queensland",
-          "Queensland University of Technology (QUT)",
+          "Queensland University of Technology",
           "Southern Cross University",
         ],
       },
@@ -53,20 +53,19 @@ export const majors = [
       {
         label: "🇦🇺 Bang Tây Úc & ACT",
         schools: [
-          "Australian National University (Canberra)",
+          "Australian National University",
           "Murdoch University",
-          "TAFE International WA",
+          "TAFE International",
         ],
       },
       {
         label: "🌎 Mỹ / Canada / Tập đoàn Giáo dục",
         schools: [
-          "Sault College – Canada",
-          "Algonquin College – Canada",
-          "Kaplan International USA/CAN",
+          "Sault College",
+          "Algonquin College",
+          "Kaplan International",
           "Study Group",
-          "INTO (GLOBAL)",
-          "Navitas",
+          "INTO Group",
         ],
       },
     ],
@@ -84,8 +83,8 @@ export const majors = [
         label: "🇦🇺 Bang New South Wales",
         schools: [
           "Macquarie University",
-          "University of Technology Sydney & UTS College",
-          "University of New South Wales (UNSW)",
+          "University of Technology Sydney",
+          "University of New South Wales",
           "Western Sydney University",
         ],
       },
@@ -101,7 +100,7 @@ export const majors = [
       {
         label: "🇦🇺 Bang Queensland",
         schools: [
-          "Queensland University of Technology (QUT)",
+          "Queensland University of Technology",
           "The University of Queensland",
         ],
       },
@@ -116,7 +115,7 @@ export const majors = [
       {
         label: "🌎 Canada / Tập đoàn Giáo dục",
         schools: [
-          "Algonquin College – Canada",
+          "Algonquin College",
           "Study Group",
         ],
       },
@@ -134,8 +133,8 @@ export const majors = [
       {
         label: "🇦🇺 Bang New South Wales",
         schools: [
-          "University of Technology Sydney & UTS College",
-          "University of New South Wales (UNSW)",
+          "University of Technology Sydney",
+          "University of New South Wales",
           "University of Wollongong Australia",
           "Macquarie University",
           "University of Newcastle",
@@ -155,7 +154,7 @@ export const majors = [
       {
         label: "🇦🇺 Bang Queensland",
         schools: [
-          "Queensland University of Technology (QUT)",
+          "Queensland University of Technology",
           "The University of Queensland",
         ],
       },
@@ -165,17 +164,17 @@ export const majors = [
           "Adelaide University",
           "Flinders University",
           "Australian National University",
-          "TAFE International WA",
+          "TAFE International",
         ],
       },
       {
         label: "🌎 Canada / Tập đoàn Giáo dục",
         schools: [
-          "Algonquin College – Canada",
-          "Sault College – Canada",
-          "Kaplan International USA/CAN",
-          "INTO (GLOBAL)",
-          "Navitas",
+          "Algonquin College",
+          "Sault College",
+          "Kaplan International",
+          "INTO Group",
+          "Navitas Group",
         ],
       },
     ],
@@ -192,8 +191,8 @@ export const majors = [
       {
         label: "🇦🇺 Bang New South Wales",
         schools: [
-          "University of New South Wales (UNSW)",
-          "University of Technology Sydney & UTS College",
+          "University of New South Wales",
+          "University of Technology Sydney",
           "University of Wollongong Australia",
           "University of Newcastle",
         ],
@@ -212,7 +211,7 @@ export const majors = [
         label: "🇦🇺 Bang Queensland",
         schools: [
           "The University of Queensland",
-          "Queensland University of Technology (QUT)",
+          "Queensland University of Technology",
         ],
       },
       {
@@ -226,9 +225,9 @@ export const majors = [
       {
         label: "🌎 Canada / Tập đoàn Giáo dục",
         schools: [
-          "Algonquin College – Canada",
-          "Sault College – Canada",
-          "INTO (GLOBAL)",
+          "Algonquin College",
+          "Sault College",
+          "INTO Group",
         ],
       },
     ],
@@ -245,7 +244,7 @@ export const majors = [
       {
         label: "🇦🇺 Bang New South Wales & Nam Úc",
         schools: [
-          "Torrens University Australia (Blue Mountains)",
+          "Torrens University Australia",
           "Southern Cross University",
           "University of Wollongong Australia",
         ],
@@ -268,9 +267,9 @@ export const majors = [
       {
         label: "🌎 Canada / Tập đoàn Giáo dục",
         schools: [
-          "Sault College – Canada",
-          "Algonquin College – Canada",
-          "Navitas",
+          "Sault College",
+          "Algonquin College",
+          "Navitas Group",
         ],
       },
     ],
@@ -314,8 +313,8 @@ export const majors = [
       {
         label: "🌎 Canada",
         schools: [
-          "Algonquin College – Canada",
-          "Sault College – Canada",
+          "Algonquin College",
+          "Sault College",
         ],
       },
     ],
@@ -359,7 +358,7 @@ export const majors = [
         label: "🌎 Tập đoàn Giáo dục",
         schools: [
           "Study Group",
-          "Navitas",
+          "Navitas Group",
         ],
       },
     ],

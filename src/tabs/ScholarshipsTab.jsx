@@ -1,14 +1,75 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { scholarships } from "../static/scholarships";
 import { BRAND } from "../static/constants";
 import ScholarshipModal from "../modals/ScholarshipModal";
-export default function ScholarshipsTab({ onSelect }) {
-  const [filter, setFilter] = useState("ALL");
 
-  const filtered =
-    filter === "ALL"
-      ? scholarships
-      : scholarships.filter((s) => s.country === filter);
+const COUNTRY_META = {
+  ÚC: { label: "🇦🇺 Úc", flag: "🇦🇺", tag: "Úc", tagColor: BRAND.blue },
+  VN: {
+    label: "🇻🇳 Việt Nam",
+    flag: "🇻🇳",
+    tag: "Việt Nam",
+    tagColor: "#2A7A2A",
+  },
+  "Nhiều QG": {
+    label: "🌏 Nhiều QG",
+    flag: "🌏",
+    tag: "Nhiều QG",
+    tagColor: "#7B1A1A",
+  },
+};
+
+export default function ScholarshipsTab({ onSelect, initialSearch = "" }) {
+  const [filter, setFilter] = useState("ALL");
+  const [search, setSearch] = useState(initialSearch);
+
+  useEffect(() => {
+    setSearch(initialSearch || "");
+  }, [initialSearch]);
+
+  const normalizedScholarships = useMemo(
+    () =>
+      scholarships.map((s) => {
+        const meta = COUNTRY_META[s.Country] || {
+          label: s.Country,
+          flag: "🏆",
+          tag: s.Country,
+          tagColor: BRAND.blue,
+        };
+        return {
+          ...s,
+          flag: meta.flag,
+          tag: meta.tag,
+          tagColor: meta.tagColor,
+          level: s.Level,
+        };
+      }),
+    [],
+  );
+
+  const filterOptions = useMemo(
+    () => [
+      "ALL",
+      ...Array.from(new Set(normalizedScholarships.map((s) => s.Country))),
+    ],
+    [normalizedScholarships],
+  );
+
+  const filtered = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    return normalizedScholarships.filter((s) => {
+      if (filter !== "ALL" && s.Country !== filter) {
+        return false;
+      }
+      if (!query) {
+        return true;
+      }
+      return (
+        (s.Institution || "").toLowerCase().includes(query) ||
+        (s.Name || "").toLowerCase().includes(query)
+      );
+    });
+  }, [filter, search, normalizedScholarships]);
 
   return (
     <div style={{ paddingTop: 16 }}>
@@ -23,7 +84,25 @@ export default function ScholarshipsTab({ onSelect }) {
         Học bổng nổi bật
       </div>
 
-      {/* Filter chips */}
+      <div style={{ marginBottom: 14 }}>
+        <input
+          type="text"
+          placeholder="🔍 Tìm học bổng theo trường..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={{
+            width: "100%",
+            outline: "none",
+            border: `1.5px solid ${search ? BRAND.blue : "#ddd"}`,
+            borderRadius: 10,
+            padding: "8px 12px",
+            fontSize: 13,
+            fontFamily: "inherit",
+            background: "white",
+          }}
+        />
+      </div>
+
       <div
         style={{
           display: "flex",
@@ -33,37 +112,38 @@ export default function ScholarshipsTab({ onSelect }) {
           paddingBottom: 4,
         }}
       >
-        {["ALL", "AU", "US", "CA"].map((c) => (
-          <button
-            key={c}
-            onClick={() => setFilter(c)}
-            style={{
-              padding: "5px 14px",
-              borderRadius: 20,
-              border: "1.5px solid",
-              fontSize: 12,
-              fontWeight: 700,
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-              background: filter === c ? BRAND.blue : "white",
-              color: filter === c ? "white" : "#666",
-              borderColor: filter === c ? BRAND.blue : "#ddd",
-            }}
-          >
-            {c === "ALL"
-              ? "Tất cả"
-              : c === "AU"
-                ? "🇦🇺 Úc"
-                : c === "US"
-                  ? "🇺🇸 Mỹ"
-                  : "🇨🇦 Canada"}
-          </button>
-        ))}
+        {filterOptions.map((c) => {
+          const meta = COUNTRY_META[c];
+          return (
+            <button
+              key={c}
+              onClick={() => setFilter(c)}
+              style={{
+                padding: "5px 14px",
+                borderRadius: 20,
+                border: "1.5px solid",
+                fontSize: 12,
+                fontWeight: 700,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                background: filter === c ? BRAND.blue : "white",
+                color: filter === c ? "white" : "#666",
+                borderColor: filter === c ? BRAND.blue : "#ddd",
+              }}
+            >
+              {c === "ALL" ? "Tất cả" : meta?.label || c}
+            </button>
+          );
+        })}
+      </div>
+
+      <div style={{ fontSize: 12, color: "#888", marginBottom: 10 }}>
+        {filtered.length} học bổng {search ? "phù hợp" : "tổng cộng"}
       </div>
 
       {filtered.map((s) => (
         <div
-          key={s.id}
+          key={s.Scholarship_ID}
           onClick={() => onSelect(s)}
           style={{
             background: "white",
@@ -105,7 +185,7 @@ export default function ScholarshipsTab({ onSelect }) {
                 fontWeight: 700,
               }}
             >
-              {s.level}
+              {s.Level}
             </span>
           </div>
           <div
@@ -116,7 +196,7 @@ export default function ScholarshipsTab({ onSelect }) {
               marginBottom: 4,
             }}
           >
-            {s.name}
+            {s.Name}
           </div>
           <div
             style={{
@@ -126,7 +206,7 @@ export default function ScholarshipsTab({ onSelect }) {
               marginBottom: 4,
             }}
           >
-            💰 {s.value}
+            💰 {s.Value}
           </div>
           <div
             style={{
@@ -136,7 +216,7 @@ export default function ScholarshipsTab({ onSelect }) {
             }}
           >
             <span style={{ fontSize: 12, color: "#888" }}>
-              📅 Hạn: {s.deadline}
+              🏛️ {s.Institution}
             </span>
             <span style={{ color: "#ccc", fontSize: 18 }}>›</span>
           </div>

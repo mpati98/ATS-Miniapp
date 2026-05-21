@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { countries } from "../static/schools";
+import { countries } from "../static/countries";
 import { BRAND } from "../static/constants";
 
 export default function SchoolsTab({ onSelectSchool }) {
   const [activeCountry, setActiveCountry] = useState("AU");
   const [activeState, setActiveState] = useState(null);
   const [search, setSearch] = useState("");
+  const [expandedGroups, setExpandedGroups] = useState(new Set());
 
   const country = countries.find((c) => c.id === activeCountry) || countries[0];
 
@@ -195,88 +196,125 @@ export default function SchoolsTab({ onSelectSchool }) {
 
       {/* State groups */}
       {country?.id !== "global" &&
-        filteredGroups.map((g) => (
-          <div key={g.id} style={{ marginBottom: 12 }}>
-            {/* State header */}
-            <div
-              style={{
-                background: g.bg,
-                borderRadius: "12px 12px 0 0",
-                padding: "10px 14px",
-                borderBottom: `2px solid ${g.color}33`,
-              }}
-            >
-              <div style={{ fontWeight: 800, fontSize: 13, color: g.color }}>
-                {g.label}
-              </div>
-              <div style={{ fontSize: 11, color: "#888", marginTop: 2 }}>
-                {g.desc}
-              </div>
-            </div>
-            {/* Schools */}
-            <div
-              style={{
-                background: "white",
-                borderRadius: "0 0 12px 12px",
-                border: `1.5px solid ${g.color}22`,
-                borderTop: "none",
-                padding: "8px 10px",
-              }}
-            >
-              {g.schools.map((name, i) => (
+        filteredGroups.map((g) => {
+          const isOpen = expandedGroups.has(g.id);
+          return (
+            <div key={g.id} style={{ marginBottom: 12 }}>
+              {/* State header */}
+              <div
+                onClick={() => {
+                  setExpandedGroups((prev) => {
+                    const next = new Set(prev);
+                    if (next.has(g.id)) {
+                      next.delete(g.id);
+                    } else {
+                      next.add(g.id);
+                    }
+                    return next;
+                  });
+                }}
+                style={{
+                  background: g.bg,
+                  borderRadius: "12px 12px 0 0",
+                  padding: "10px 14px",
+                  borderBottom: `2px solid ${g.color}33`,
+                  cursor: "pointer",
+                  userSelect: "none",
+                }}
+              >
                 <div
-                  key={i}
-                  onClick={() =>
-                    onSelectSchool?.({
-                      name,
-                      state: g.name,
-                      stateColor: g.color,
-                      stateBg: g.bg,
-                      stateAbbr: g.abbr,
-                    })
-                  }
                   style={{
                     display: "flex",
+                    justifyContent: "space-between",
                     alignItems: "center",
                     gap: 10,
-                    padding: "8px 8px",
-                    borderRadius: 10,
-                    marginBottom: 4,
-                    cursor: "pointer",
-                    transition: "background 0.1s",
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.background = g.bg)
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.background = "transparent")
-                  }
                 >
-                  <div
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background: g.color,
-                      flexShrink: 0,
-                    }}
-                  />
-                  <div
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: "#1a1a2e",
-                      flex: 1,
-                    }}
-                  >
-                    {name}
+                  <div>
+                    <div
+                      style={{ fontWeight: 800, fontSize: 13, color: g.color }}
+                    >
+                      {g.label}
+                    </div>
+                    <div style={{ fontSize: 11, color: "#888", marginTop: 2 }}>
+                      {g.desc}
+                    </div>
+                    <div style={{ fontSize: 12, color: "#888", marginTop: 2 }}>
+                      {g.highlight}
+                    </div>
                   </div>
-                  <span style={{ color: "#ddd", fontSize: 14 }}>›</span>
+                  {/* <div style={{ fontSize: 12, color: "#555", fontWeight: 700 }}>
+                    {isOpen ? "Ẩn" : "Hiện"}
+                  </div> */}
                 </div>
-              ))}
+              </div>
+              {/* Schools */}
+              {isOpen && (
+                <div
+                  style={{
+                    background: "white",
+                    borderRadius: "0 0 12px 12px",
+                    border: `1.5px solid ${g.color}22`,
+                    borderTop: "none",
+                    padding: "8px 10px",
+                  }}
+                >
+                  {g.schools.map((name, i) => (
+                    <div
+                      key={i}
+                      onClick={() =>
+                        onSelectSchool?.({
+                          name,
+                          state: g.name,
+                          stateColor: g.color,
+                          stateBg: g.bg,
+                          stateAbbr: g.abbr,
+                        })
+                      }
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        padding: "8px 8px",
+                        borderRadius: 10,
+                        marginBottom: 4,
+                        cursor: "pointer",
+                        transition: "background 0.1s",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.background = g.bg)
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.background = "transparent")
+                      }
+                    >
+                      <div
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: "50%",
+                          background: g.color,
+                          flexShrink: 0,
+                        }}
+                      />
+                      <div
+                        style={{
+                          fontSize: 13,
+                          fontWeight: 600,
+                          color: "#1a1a2e",
+                          flex: 1,
+                        }}
+                      >
+                        {name}
+                      </div>
+                      <span style={{ color: "#ddd", fontSize: 14 }}>›</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
 
       {totalVisible === 0 && (
         <div style={{ textAlign: "center", padding: "40px 0", color: "#aaa" }}>

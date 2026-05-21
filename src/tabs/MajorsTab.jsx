@@ -328,7 +328,7 @@ function MajorDetail({ major, onBack, onSelectSchool }) {
 }
 
 // ── Export ─────────────────────────────────────────────────────────────────────
-export default function MajorsTab() {
+export default function MajorsTab({ onOpenScholarships }) {
   const [selected, setSelected] = useState(null);
   const [selectedSchool, setSelectedSchool] = useState(null);
 
@@ -346,6 +346,7 @@ export default function MajorsTab() {
       <SchoolModal
         school={selectedSchool}
         onClose={() => setSelectedSchool(null)}
+        onOpenScholarships={onOpenScholarships}
       />
     </>
   );

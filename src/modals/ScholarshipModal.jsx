@@ -1,9 +1,8 @@
 import { BRAND } from "../static/constants";
 const ROWS = [
-  { icon: "💰", label: "Giá trị học bổng", key: "value" },
-  { icon: "📅", label: "Hạn nộp hồ sơ", key: "deadline" },
-  { icon: "✅", label: "Điều kiện", key: "eligibility" },
-  { icon: "📍", label: "Gặp tại", key: "booth" },
+  { icon: "💰", label: "Giá trị học bổng", key: "Value" },
+  { icon: "✅", label: "Bậc học", key: "Level" },
+  { icon: "📍", label: "Gặp tại", key: "Booth" },
 ];
 
 export default function ScholarshipModal({ scholarship, onClose }) {
@@ -75,7 +74,7 @@ export default function ScholarshipModal({ scholarship, onClose }) {
               fontWeight: 700,
             }}
           >
-            {scholarship.level}
+            {scholarship.Level}
           </span>
         </div>
 
@@ -89,7 +88,7 @@ export default function ScholarshipModal({ scholarship, onClose }) {
             lineHeight: 1.3,
           }}
         >
-          {scholarship.name}
+          {scholarship.Name}
         </div>
 
         {/* Info rows */}
