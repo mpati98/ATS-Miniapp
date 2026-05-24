@@ -20,14 +20,14 @@ export const countries = [
         desc: "Sydney · Newcastle · Wollongong",
         highlight: "Thủ đô văn hóa, giáo dục hàng đầu nước Úc.",
         schools: [
-          "Southern Cross University",
           "Macquarie University",
+          "Torrens University Australia",
+          "Southern Cross University",
+          "University of New South Wales",
           "University of Newcastle",
           "Western Sydney University",
           "University of Wollongong",
           "University of Wollongong College",
-          "University of New South Wales",
-          "Torrens University Australia",
           "University of Technology Sydney",
           "University of Technology Sydney College",
           "New South Wales Government Schools",
@@ -42,14 +42,15 @@ export const countries = [
         desc: "Melbourne · Geelong",
         highlight: "Trung tâm kinh tế, nhiều việc làm, cộng đồng Việt lớn.",
         schools: [
+          "Swinburne University of Technology",
+          "Chisholm Institute",
           "University of Melbourne",
           "Trinity College",
-          "Swinburne University of Technology",
-          "Deakin University",
           "Federation University",
+          "Monash University",
           "RMIT University",
           "La Trobe University",
-          "Monash University",
+          "Deakin University",
         ],
       },
       {
@@ -61,8 +62,8 @@ export const countries = [
         desc: "Brisbane · Gold Coast",
         highlight: "Khí hậu ấm áp, chi phí hợp lý, phát triển du lịch.",
         schools: [
-          "Queensland University of Technology",
           "The University of Queensland",
+          "Queensland University of Technology",
           "Education Queensland International",
         ],
       },
@@ -76,9 +77,9 @@ export const countries = [
         highlight:
           "Chi phí phải chăng, môi trường sống yên bình, nhiều hỗ trợ.",
         schools: [
-          "Flinders University",
-          "Adelaide University",
           "Study Adelaide",
+          "Adelaide University",
+          "Flinders University",
           "South Australian Department for Education International",
         ],
       },
@@ -90,7 +91,7 @@ export const countries = [
         bg: "#3f51b5",
         desc: "Perth · Fremantle",
         highlight: "Kinh tế mạnh, nhiều việc làm, chính sách định cư tốt.",
-        schools: ["TAFE International", "Murdoch University"],
+        schools: ["Murdoch University", "TAFE International"],
       },
       {
         id: "ACT",
@@ -150,8 +151,8 @@ export const countries = [
           "British University Vietnam",
           "Học viện Ngoại giao",
           "Singapore Airlines",
-          "Career Mentor",
           "PTE Helper",
+          "Career Mentor",
         ],
       },
     ],
@@ -174,16 +175,16 @@ export const countries = [
         bg: "#922820",
         desc: "Úc · Mỹ · Canada · Anh · Châu Âu",
         schools: [
-          "Study Group",
           "Kaplan International",
+          "Study Group",
           "INTO Group",
           "Navitas Group",
         ],
         orgDetails: {
-          "Study Group":
-            "Đối tác chiến lược của nhiều đại học danh giá tại Úc, Mỹ, Anh, New Zealand và Châu Âu.",
           "Kaplan International":
             "Chuyên cung cấp lộ trình vào các trường hàng đầu tại Mỹ, Canada và Anh Quốc.",
+          "Study Group":
+            "Đối tác chiến lược của nhiều đại học danh giá tại Úc, Mỹ, Anh, New Zealand và Châu Âu.",
           "INTO Group":
             "Hỗ trợ sinh viên quốc tế vào các trường đại học nghiên cứu hàng đầu tại Mỹ, Anh và Úc.",
           "Navitas Group":

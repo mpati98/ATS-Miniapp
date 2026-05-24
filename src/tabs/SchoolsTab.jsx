@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { countries } from "../static/countries";
 import { BRAND } from "../static/constants";
 
-export default function SchoolsTab({ onSelectSchool }) {
-  const [activeCountry, setActiveCountry] = useState("AU");
+export default function SchoolsTab({ onSelectSchool, initialCountry = "AU" }) {
+  const [activeCountry, setActiveCountry] = useState(initialCountry);
   const [activeState, setActiveState] = useState(null);
   const [search, setSearch] = useState("");
   const [expandedGroups, setExpandedGroups] = useState(new Set());
+
+  useEffect(() => {
+    setActiveCountry(initialCountry);
+    setActiveState(null);
+    setSearch("");
+  }, [initialCountry]);
 
   const country = countries.find((c) => c.id === activeCountry) || countries[0];
 

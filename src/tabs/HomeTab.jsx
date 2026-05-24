@@ -1,42 +1,5 @@
-import { scholarships } from "@/static/scholarships";
-import { majors } from "@/static/majors";
 import { countries } from "@/static/countries";
-import { BRAND } from "@/static/constants";
-const totalSchools = countries.reduce((acc, c) => {
-  if (c.states) return acc + c.states.reduce((a, s) => a + s.schools.length, 0);
-  return acc + (c.schools?.length || 0);
-}, 0);
-
-const QUICK_LINKS = [
-  {
-    icon: "🎓",
-    label: "Trường học theo quốc gia",
-    sub: "Úc · Canada · Tập đoàn Giáo dục",
-    t: "schools",
-    color: BRAND.blue,
-  },
-  {
-    icon: "📖",
-    label: "Ngành học & trường phù hợp",
-    sub: "Business · IT · Healthcare · Engineering...",
-    t: "majors",
-    color: "#7C3AED",
-  },
-  {
-    icon: "🏆",
-    label: "Học bổng nổi bật",
-    sub: "Toàn phần & bán phần",
-    t: "scholarships",
-    color: BRAND.orange,
-  },
-  {
-    icon: "🗺️",
-    label: "Sơ đồ sảnh chính thức",
-    sub: "Check-in, hội thảo · Booth trường",
-    t: "map",
-    color: "#15803D",
-  },
-];
+import { BRAND, QUICK_LINKS } from "@/static/constants";
 
 export default function HomeTab({ onNavigate }) {
   return (
@@ -145,7 +108,7 @@ export default function HomeTab({ onNavigate }) {
         return (
           <div
             key={c.id}
-            onClick={() => onNavigate("schools")}
+            onClick={() => onNavigate("schools", { country: c.id })}
             style={{
               background: "white",
               borderRadius: 14,

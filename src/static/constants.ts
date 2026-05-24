@@ -13,6 +13,37 @@ export const EVENT = {
   venue:    "Du Parc Hotel, P. Hai Bà Trưng – Hà Nội",
 };
 
+export const QUICK_LINKS = [
+  {
+    icon: "🎓",
+    label: "Trường học theo quốc gia",
+    sub: "Úc · Canada · Tập đoàn Giáo dục",
+    t: "schools",
+    color: BRAND.blue,
+  },
+  {
+    icon: "📖",
+    label: "Ngành học & trường phù hợp",
+    sub: "Business · IT · Healthcare · Engineering...",
+    t: "majors",
+    color: "#7C3AED",
+  },
+  {
+    icon: "🏆",
+    label: "Học bổng nổi bật",
+    sub: "Toàn phần & bán phần",
+    t: "scholarships",
+    color: BRAND.orange,
+  },
+  {
+    icon: "🗺️",
+    label: "Sơ đồ sảnh chính thức",
+    sub: "Check-in, hội thảo · Booth trường",
+    t: "map",
+    color: "#15803D",
+  },
+];
+
 export const navItems = [
           { t: "home", icon: "🏠", label: "Trang chủ" },
           { t: "schools", icon: "🎓", label: "Booth/Trường" },
@@ -88,13 +119,6 @@ export const booths = {
   50: { name: "Annalink | Bảo hiểm du học", zone: "PARTNER" },
 };
 
-export const SA_WALL = [5, 4, 3, 2, 1];
-export const ROW1 = [6,7,8,9,10,11,12,13,14,15,16];
-export const ROW2 = [26,25,24,23,22,21,20,19,18,17];
-export const ROW3L = [27,28];
-export const ROW3R = [29,30,31,32,33,34,35,36,37];
-export const ROW4 = [47,46,45,44,43,42,41,40,39,38];
-export const ROW5 = [48,49,50];
 
 
 export const countryLabel = { AU: "Úc", US: "Mỹ", CA: "Canada", ALL: "Tất cả" };

@@ -15,6 +15,7 @@ export default function App() {
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [selectedScholarship, setSelectedScholarship] = useState(null);
   const [scholarshipSearch, setScholarshipSearch] = useState("");
+  const [schoolTabCountry, setSchoolTabCountry] = useState("AU");
 
   const handleTabChange = (newTab) => {
     setTab(newTab);
@@ -23,10 +24,13 @@ export default function App() {
     }
   };
 
-  const handleNavigate = (newTab) => {
+  const handleNavigate = (newTab, options = {}) => {
     setTab(newTab);
     if (newTab !== "scholarships") {
       setScholarshipSearch("");
+    }
+    if (newTab === "schools" && options.country) {
+      setSchoolTabCountry(options.country);
     }
   };
 
@@ -58,7 +62,12 @@ export default function App() {
 
       <div style={{ padding: "0 16px" }}>
         {tab === "home" && <HomeTab onNavigate={handleNavigate} />}
-        {tab === "schools" && <SchoolsTab onSelectSchool={setSelectedSchool} />}
+        {tab === "schools" && (
+          <SchoolsTab
+            onSelectSchool={setSelectedSchool}
+            initialCountry={schoolTabCountry}
+          />
+        )}
         {tab === "majors" && (
           <MajorsTab onOpenScholarships={openScholarshipsForSchool} />
         )}

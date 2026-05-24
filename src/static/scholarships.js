@@ -484,7 +484,7 @@ export const scholarships = [
     Name: "English Language Pathway Bursary",
     Institution: "University of Wollongong College",
     Value: "20%",
-    Level: "Cao Đẳng",
+    Level: NaN,
     State: "New South Wales",
     Country: "ÚC",
     Booth: "10",
@@ -791,7 +791,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S80",
-    Name: "Three Pillars Blue Mountains Hospitality Scholarship",
+    Name: "Three Pillars Blue Mountains International Hotel Management School Hospitality Scholarship",
     Institution: "Torrens University",
     Value: "10 - 50%",
     Level: "Đại Học | Sau Đại Học",
@@ -1103,7 +1103,7 @@ export const scholarships = [
     Scholarship_ID: "S111",
     Name: "Monash International Merit Scholarship",
     Institution: "Monash University",
-    Value: "10,000 AUD",
+    Value: "15,000 AUD",
     Level: "Đại Học | Sau Đại Học",
     State: "Victoria",
     Country: "ÚC",
@@ -1143,7 +1143,7 @@ export const scholarships = [
     Scholarship_ID: "S115",
     Name: "Monash Award",
     Institution: "Monash University",
-    Value: "10,000 AUD",
+    Value: "10,000 AUD/ 12,000 AUD",
     Level: "Đại Học",
     State: "Victoria",
     Country: "ÚC",
@@ -1271,7 +1271,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S128",
-    Name: "Commerce Global Diversity Scholarship (Undergraduate)",
+    Name: "Commerce Global Diversity Scholarship",
     Institution: "The University of Melbourne",
     Value: "20%",
     Level: "Đại Học",
@@ -1291,7 +1291,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S130",
-    Name: "Business & Economics Global Diversity Graduate Scholarship (Postgraduate)",
+    Name: "Business & Economics Global Diversity Graduate Scholarship",
     Institution: "The University of Melbourne",
     Value: "25%",
     Level: "Sau Đại Học",
@@ -1335,26 +1335,6 @@ export const scholarships = [
     Institution: "Murdoch University",
     Value: "20%",
     Level: "Sau Đại Học | Đại Học",
-    State: "Western Australia",
-    Country: "ÚC",
-    Booth: "26",
-  },
-  {
-    Scholarship_ID: "S135",
-    Name: "International Welcome Scholarship – Master of Education (M1367)",
-    Institution: "Murdoch University",
-    Value: "25%",
-    Level: "Sau Đại Học",
-    State: "Western Australia",
-    Country: "ÚC",
-    Booth: "26",
-  },
-  {
-    Scholarship_ID: "S136",
-    Name: "International Welcome Scholarship – Master of Exercise Science (Research) (M1275)",
-    Institution: "Murdoch University",
-    Value: "25%",
-    Level: "Sau Đại Học",
     State: "Western Australia",
     Country: "ÚC",
     Booth: "26",
@@ -1421,7 +1401,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S143",
-    Name: "New American University (NAmU) Scholarship",
+    Name: "New American University (NAmU) Scholarship - ASU",
     Institution: "Kaplan International",
     Value: "7,000 - 20,000 USD",
     Level: "Đại Học",
@@ -1431,7 +1411,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S144",
-    Name: "MS Computer Science",
+    Name: "Ira A. Fulton Schools of Engineering (MS Computer Science) - ASU",
     Institution: "Kaplan International",
     Value: "6,000 - 10,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -1441,7 +1421,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S145",
-    Name: "MS Computer Science",
+    Name: "MS Computer Science - ASU",
     Institution: "Kaplan International",
     Value: "6,000 - 8,000 USD",
     Level: "Sau Đại Học",
@@ -1451,7 +1431,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S146",
-    Name: "Scholarship",
+    Name: "W. P. Carey School of Business - ASU",
     Institution: "Kaplan International",
     Value: "2,500 - 5,000 USD",
     Level: "Sau Đại Học",
@@ -1461,7 +1441,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S147",
-    Name: "Scholarship",
+    Name: "Thunderbird School of Global Management - ASU",
     Institution: "Kaplan International",
     Value: "5,000 - 10,000 USD",
     Level: "Sau Đại Học",
@@ -1471,7 +1451,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S148",
-    Name: "Scholarship",
+    Name: "Thunderbird School of Global Management - ASU",
     Institution: "Kaplan International",
     Value: "21,000 - 30,000 USD",
     Level: "Sau Đại Học",
@@ -1481,7 +1461,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S149",
-    Name: "Scholarship",
+    Name: "Sandra Day O’Connor College of Law - ASU",
     Institution: "Kaplan International",
     Value: "5,000 USD",
     Level: "Sau Đại Học",
@@ -1491,7 +1471,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S150",
-    Name: "Scholarship",
+    Name: "All Other Colleges - ASU",
     Institution: "Kaplan International",
     Value: "5,000 USD",
     Level: "Sau Đại Học",
@@ -1501,7 +1481,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S151",
-    Name: "Undergraduate Scholarships",
+    Name: "Undergraduate Scholarships - Pace University",
     Institution: "Kaplan International",
     Value: "140,000 USD | 80,000 USD",
     Level: "Đại Học",
@@ -1511,7 +1491,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S152",
-    Name: "Master Scholarship",
+    Name: "Master Scholarship - Pace University",
     Institution: "Kaplan International",
     Value: "4,800 - 6,000 USD",
     Level: "Sau Đại Học",
@@ -1521,7 +1501,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S153",
-    Name: "The Simmons Kaplan Women's Leadership Scholarship",
+    Name: "The Simmons Kaplan Women's Leadership Scholarship - Simmons University",
     Institution: "Kaplan International",
     Value: "88,000 USD",
     Level: "Đại Học",
@@ -1531,7 +1511,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S154",
-    Name: "Renewable merit scholarships",
+    Name: "Renewable merit scholarships - University of Connecticut",
     Institution: "Kaplan International",
     Value: "5,000 - 15,000 USD",
     Level: "Đại Học",
@@ -1541,7 +1521,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S155",
-    Name: "UO Excellence",
+    Name: "UO Excellence - University of Oregon",
     Institution: "Kaplan International",
     Value: "20,000 USD",
     Level: "Đại Học",
@@ -1551,7 +1531,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S156",
-    Name: "Summit",
+    Name: "Summit - University of Oregon",
     Institution: "Kaplan International",
     Value: "12,500 USD",
     Level: "Đại Học",
@@ -1561,7 +1541,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S157",
-    Name: "Apex",
+    Name: "Apex - University of Oregon",
     Institution: "Kaplan International",
     Value: "10,000 USD",
     Level: "Đại Học",
@@ -1571,7 +1551,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S158",
-    Name: "International Baccalaureate (IB)",
+    Name: "International Baccalaureate (IB) - University of Oregon",
     Institution: "Kaplan International",
     Value: "2,000 - 6,000 USD",
     Level: "Đại Học",
@@ -1581,7 +1561,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S159",
-    Name: "UVic Undergraduate Scholarships & Funding",
+    Name: "UVic Undergraduate Scholarships & Funding - University of Victoria",
     Institution: "Kaplan International",
     Value: "10,000 CAD",
     Level: "Đại Học",
@@ -1591,7 +1571,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S160",
-    Name: "International IB Scholarship",
+    Name: "International IB Scholarship - University of Victoria",
     Institution: "Kaplan International",
     Value: "2,000 CAD",
     Level: "Đại Học",
@@ -1601,7 +1581,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S161",
-    Name: "UVic Fellowships",
+    Name: "UVic Fellowships - University of Victoria",
     Institution: "Kaplan International",
     Value: "lên đến 17,500 CAD",
     Level: "Sau Đại Học",
@@ -1611,7 +1591,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S162",
-    Name: "UVic Graduate Awards",
+    Name: "UVic Graduate Awards - University of Victoria",
     Institution: "Kaplan International",
     Value: "lên đến 10,000 CAD",
     Level: "Sau Đại Học",
@@ -1631,7 +1611,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S164",
-    Name: "Regional Awards",
+    Name: "Regional Awards - Oregon State University",
     Institution: "INTO Group",
     Value: "16,000 USD",
     Level: "Đại Học",
@@ -1641,7 +1621,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S165",
-    Name: "Regional Awards",
+    Name: "Regional Awards - Oregon State University",
     Institution: "INTO Group",
     Value: "8,000 USD",
     Level: "Đại Học",
@@ -1651,7 +1631,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S166",
-    Name: "One Time Reward",
+    Name: "One Time Reward - Oregon State University",
     Institution: "INTO Group",
     Value: "lên đến 7,500 USD",
     Level: "Sau Đại Học",
@@ -1661,7 +1641,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S167",
-    Name: "Scholarship",
+    Name: "Geogre Mason University",
     Institution: "INTO Group",
     Value: "lên đến 20,000 USD",
     Level: "Đại Học",
@@ -1671,7 +1651,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S168",
-    Name: "Regional Scholarships",
+    Name: "Regional Scholarships - University of Alabama at Birmingham",
     Institution: "INTO Group",
     Value: "lên đến 6,000 USD",
     Level: "Đại Học",
@@ -1681,7 +1661,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S169",
-    Name: "Direct Transfer",
+    Name: "Direct Transfer - University of Alabama at Birmingham",
     Institution: "INTO Group",
     Value: "lên đến 6,000 USD",
     Level: "Đại Học",
@@ -1691,7 +1671,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S170",
-    Name: "Undergraduate Transfer Program (UTP)",
+    Name: "Undergraduate Transfer Program (UTP) - University of Alabama at Birmingham",
     Institution: "INTO Group",
     Value: "lên đến 6,000 USD",
     Level: "Đại Học",
@@ -1701,7 +1681,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S171",
-    Name: "Graduate Scholarship",
+    Name: "Graduate Scholarship - University of Alabama at Birmingham",
     Institution: "INTO Group",
     Value: "lên đến 6,000 USD",
     Level: "Sau Đại học",
@@ -1711,7 +1691,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S172",
-    Name: "Scholarship",
+    Name: "Scholarship - Saint Louis University",
     Institution: "INTO Group",
     Value: "lên đến 36,000 USD",
     Level: "Đại Học",
@@ -1721,7 +1701,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S173",
-    Name: "International Year One",
+    Name: "International Year One - Saint Louis University",
     Institution: "INTO Group",
     Value: "20,000 USD (ROW) và lên đến 5,000 USD",
     Level: "Đại Học",
@@ -1731,7 +1711,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S174",
-    Name: "Under Transfer",
+    Name: "Under Transfer - Saint Louis University",
     Institution: "INTO Group",
     Value: "20,000 USD (ROW) và lên đến 5,000 USD",
     Level: "Đại Học",
@@ -1741,7 +1721,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S175",
-    Name: "Direct Transfer",
+    Name: "Direct Transfer - Saint Louis University",
     Institution: "INTO Group",
     Value: "lên đến 22,000 USD",
     Level: "Đại Học",
@@ -1751,7 +1731,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S176",
-    Name: "Graduate – Direct entry",
+    Name: "Graduate – Direct entry - Saint Louis University",
     Institution: "INTO Group",
     Value: "lên đến 14,000 USD",
     Level: "Sau Đại Học",
@@ -1761,7 +1741,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S177",
-    Name: "Graduate Pathway (GPW)",
+    Name: "Graduate Pathway (GPW) - Saint Louis University",
     Institution: "INTO Group",
     Value: "lên đến 8,000 USD",
     Level: "Sau Đại Học",
@@ -1771,7 +1751,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S178",
-    Name: "Under – Direct entry",
+    Name: "Under – Direct entry - Suffolk University",
     Institution: "INTO Group",
     Value: "lên đến 22,000 USD",
     Level: "Đại Học",
@@ -1781,7 +1761,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S179",
-    Name: "Under – International Direct (ID)",
+    Name: "Under – International Direct (ID) - Suffolk University",
     Institution: "INTO Group",
     Value: "7,500 - 10,000 USD",
     Level: "Đại Học",
@@ -1791,7 +1771,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S180",
-    Name: "International Year One (IYO)",
+    Name: "International Year One (IYO) - Suffolk University",
     Institution: "INTO Group",
     Value: "lên đến 15,000 USD",
     Level: "Đại Học",
@@ -1801,7 +1781,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S181",
-    Name: "Under – Direct Transfer",
+    Name: "Under – Direct Transfer - Suffolk University",
     Institution: "INTO Group",
     Value: "lên đến 22,000 USD",
     Level: "Sau Đại Học",
@@ -1811,7 +1791,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S182",
-    Name: "Under – Undergraduate Transfer Program (UTP)",
+    Name: "Under – Undergraduate Transfer Program (UTP) - Suffolk University",
     Institution: "INTO Group",
     Value: "lên đến 10,000 USD",
     Level: "Đại Học",
@@ -1821,7 +1801,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S183",
-    Name: "Under – Direct Entry",
+    Name: "Under – Direct Entry - Suffolk University",
     Institution: "INTO Group",
     Value: "lên đến 27,000 USD",
     Level: "Đại Học",
@@ -1831,7 +1811,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S184",
-    Name: "Graduate – Direct entry, IMP Arts & Sciences & Business, IMP LLM",
+    Name: "Graduate - Direct entry, Intergrated Master's Program (IMP) Arts and Scienes & Business, Intergrated Master's Program (IMP) LLM - Suffolk University",
     Institution: "INTO Group",
     Value: "5,000 - 12,000 USD",
     Level: "Sau Đại Học",
@@ -1841,7 +1821,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S185",
-    Name: "Undergraduate Freshman – Direct Entry (DE)",
+    Name: "Undergraduate Freshman – Direct Entry (DE) - Drew University",
     Institution: "INTO Group",
     Value: "lên đến 27,000 USD",
     Level: "Đại Học",
@@ -1851,7 +1831,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S186",
-    Name: "Undergraduate Freshman – International Year One (IYO)",
+    Name: "Undergraduate Freshman – International Year One (IYO) - Drew University",
     Institution: "INTO Group",
     Value: "lên đến 15,000 USD",
     Level: "Đại Học",
@@ -1861,7 +1841,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S187",
-    Name: "Undergraduate Transfer – Direct Transfer",
+    Name: "Undergraduate Transfer – Direct Transfer - Drew University",
     Institution: "INTO Group",
     Value: "lên đến 23,000 USD",
     Level: "Đại Học",
@@ -1871,7 +1851,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S188",
-    Name: "Undergraduate Transfer – Undergraduate Transfer Program (UTP)",
+    Name: "Undergraduate Transfer – Undergraduate Transfer Program (UTP) - Drew University",
     Institution: "INTO Group",
     Value: "lên đến 15,000 USD",
     Level: "Đại Học",
@@ -1881,7 +1861,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S189",
-    Name: "Graduate – Direct Entry (DE)",
+    Name: "Graduate – Direct Entry (DE) - Drew University",
     Institution: "INTO Group",
     Value: "lên đến 20% Học Phí",
     Level: "Sau Đại Học",
@@ -1891,7 +1871,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S190",
-    Name: "Graduate – Integrated Master Program, Graduate Pathway, Graduate Bridge",
+    Name: "Graduate – Integrated Master Program, Graduate Pathway, Graduate Bridge - Drew University",
     Institution: "INTO Group",
     Value: "lên đến 8,000 USD",
     Level: "Sau Đại Học",
@@ -1901,7 +1881,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S191",
-    Name: "Scholarship",
+    Name: "Curtin English Language Program",
     Institution: "Navitas Group",
     Value: "7,008 AUD",
     Level: "Khoá Tiếng Anh",
@@ -1951,7 +1931,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S196",
-    Name: "Scholarship",
+    Name: "UC College English Program",
     Institution: "Navitas Group",
     Value: "15%",
     Level: "Khoá Tiếng Anh",
@@ -1961,7 +1941,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S197",
-    Name: "Global Student Success Scholarship",
+    Name: "Global Student Success Scholarship - Queens College",
     Institution: "Navitas Group",
     Value: "2,000 USD",
     Level: "Đại Học",
@@ -1971,7 +1951,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S198",
-    Name: "Need-based Scholarship",
+    Name: "Need-based Scholarship - SAE Institute of Technology",
     Institution: "Navitas Group",
     Value: "2,500 USD",
     Level: "Chương Trình Audio Technology",
@@ -1981,7 +1961,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S199",
-    Name: "Excellence Scholarship",
+    Name: "Excellence Scholarship - The Hague Pathway College",
     Institution: "Navitas Group",
     Value: "1,000 EUR",
     Level: "Dự Bị Đại Học",
@@ -1991,7 +1971,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S200",
-    Name: "Early Bird Scholarship",
+    Name: "Early Bird Scholarship - The Hague Pathway College",
     Institution: "Navitas Group",
     Value: "500 EUR",
     Level: "Dự Bị Đại Học",
@@ -2001,7 +1981,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S201",
-    Name: "MQP Scholarship",
+    Name: "MQP Scholarship - Twente Pathway College",
     Institution: "Navitas Group",
     Value: "2,000 EUR",
     Level: "Dự Bị Thạc Sĩ",
@@ -2011,7 +1991,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S202",
-    Name: "Engineering & Technology Scholarship",
+    Name: "Engineering & Technology Scholarship - Twente Pathway College",
     Institution: "Navitas Group",
     Value: "500 EUR",
     Level: "Dự Bị Đại Học",
@@ -2021,7 +2001,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S203",
-    Name: "Foundation Year Early Acceptance Scholarship",
+    Name: "Foundation Year Early Acceptance Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "2,000 EUR",
     Level: "Dự Bị Đại Học",
@@ -2031,7 +2011,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S204",
-    Name: "BSc (Hons) Merit Scholarship",
+    Name: "BSc (Hons) Merit Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "2,000 EUR",
     Level: "Đại Học",
@@ -2041,7 +2021,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S205",
-    Name: "BSc (Hons) Early Acceptance Scholarship",
+    Name: "BSc (Hons) Early Acceptance Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "1,500 EUR",
     Level: "Đại Học",
@@ -2051,7 +2031,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S206",
-    Name: "Management School MSc Merit Scholarship",
+    Name: "Management School MSc Merit Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "4,000 EUR",
     Level: "Sau Đại Học",
@@ -2061,7 +2041,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S207",
-    Name: "School of Computing and Communications MSc Merit Scholarship",
+    Name: "School of Computing and Communications MSc Merit Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "5,000 EUR",
     Level: "Sau Đại Học",
@@ -2071,7 +2051,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S208",
-    Name: "MSc Early Acceptance Scholarship",
+    Name: "MSc Early Acceptance Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "3,000 EUR",
     Level: "Sau Đại Học",
@@ -2081,7 +2061,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S209",
-    Name: "Pre-Master's Business – Early Acceptance Scholarship",
+    Name: "Pre-Master's Business – Early Acceptance Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "4,000 EUR / 2,000 EUR",
     Level: "Dự Bị Thạc Sĩ",
@@ -2091,7 +2071,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S210",
-    Name: "Pre-Master's Computer Science – Early Acceptance Scholarship",
+    Name: "Pre-Master's Computer Science – Early Acceptance Scholarship - Lancaster University Leipzig",
     Institution: "Navitas Group",
     Value: "7,000 EUR / 5,000 EUR",
     Level: "Dự Bị Thạc Sĩ",
@@ -2101,7 +2081,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S211",
-    Name: "Scholarship",
+    Name: "Fraser Internation College",
     Institution: "Navitas Group",
     Value: "2,000 CAD",
     Level: "Dự Bị Đại Học",
@@ -2111,7 +2091,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S212",
-    Name: "Scholarship",
+    Name: "Ulethbridge International College Calgary",
     Institution: "Navitas Group",
     Value: "3,500 CAD",
     Level: "Dự Bị Đại Học",
@@ -2121,7 +2101,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S213",
-    Name: "Scholarship",
+    Name: "International College of Manitoba",
     Institution: "Navitas Group",
     Value: "2,000 CAD",
     Level: "Dự Bị Đại Học",
@@ -2131,7 +2111,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S214",
-    Name: "Scholarship",
+    Name: "Wilfrid Laurier International College",
     Institution: "Navitas Group",
     Value: "5,000 CAD",
     Level: "Dự Bị Đại Học",
@@ -2141,7 +2121,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S215",
-    Name: "Scholarship",
+    Name: "Toronto Metropolitan University International College",
     Institution: "Navitas Group",
     Value: "2,000 CAD",
     Level: "Dự Bị Đại Học",
@@ -2151,7 +2131,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S216",
-    Name: "Scholarship",
+    Name: "Texas A&M University – Corpus Christi",
     Institution: "Study Group",
     Value: "4,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2161,7 +2141,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S217",
-    Name: "Scholarship",
+    Name: "Towson University",
     Institution: "Study Group",
     Value: "3,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2171,9 +2151,9 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S218",
-    Name: "Scholarship",
+    Name: "University of Hartford",
     Institution: "Study Group",
-    Value: "28,000 | 8,000 USD",
+    Value: "lên đến 28,000 USD | lên đến 18,000 USD",
     Level: "Đại Học | Sau Đại Học",
     State: "USA",
     Country: "Nhiều QG",
@@ -2181,7 +2161,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S219",
-    Name: "Scholarship",
+    Name: "University of Nebraska at Omaha",
     Institution: "Study Group",
     Value: "4,000 | 1,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2191,7 +2171,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S220",
-    Name: "Scholarship",
+    Name: "Western Washington University",
     Institution: "Study Group",
     Value: "6,000 | 3,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2201,7 +2181,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S221",
-    Name: "Scholarship",
+    Name: "DePaul University",
     Institution: "Study Group",
     Value: "15,000 - 31,000 USD | 12,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2211,7 +2191,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S222",
-    Name: "Scholarship",
+    Name: "Florida Atlantic University",
     Institution: "Study Group",
     Value: "lên đến 6,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2221,7 +2201,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S223",
-    Name: "ISC Progression Scholarship International Recognition Award",
+    Name: "ISC Progression Scholarship International Recognition Award - James Madison University",
     Institution: "Study Group",
     Value: "5,000 USD",
     Level: "Đại Học",
@@ -2231,7 +2211,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S224",
-    Name: "Scholarship",
+    Name: "Long Island University",
     Institution: "Study Group",
     Value: "lên đến 30,250 USD | 6,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2241,7 +2221,7 @@ export const scholarships = [
   },
   {
     Scholarship_ID: "S225",
-    Name: "Scholarship",
+    Name: "University of Wisconsin-Stout",
     Institution: "Study Group",
     Value: "lên đến 5,000 USD | 6,000 USD",
     Level: "Đại Học | Sau Đại Học",
@@ -2298,5 +2278,115 @@ export const scholarships = [
     State: "Việt Nam",
     Country: "VN",
     Booth: "34",
+  },
+  {
+    Scholarship_ID: "S231",
+    Name: "Cambridge International Global Scholarship & Excellence Awards",
+    Institution: "University of Technology Sydney College",
+    Value: "100% | 50%",
+    Level: "Khóa học AS, A Level",
+    State: "New South Wales",
+    Country: "ÚC",
+    Booth: "11",
+  },
+  {
+    Scholarship_ID: "S232",
+    Name: "Global Achiever's Scholarship",
+    Institution: "University of Technology Sydney College",
+    Value: "10,000 AUD",
+    Level: "Dự bị Đại Học | Chứng chỉ (Diploma)",
+    State: "New South Wales",
+    Country: "ÚC",
+    Booth: "11",
+  },
+  {
+    Scholarship_ID: "S233",
+    Name: "Engineering International High Achievers Scholarship",
+    Institution: "Monash University",
+    Value: "15,000 AUD",
+    Level: "Đại học | Sau Đại Học",
+    State: "Victoria",
+    Country: "ÚC",
+    Booth: "22",
+  },
+  {
+    Scholarship_ID: "S234",
+    Name: "Vice-Chancellor ASEAN Pathway Award",
+    Institution: "Monash University",
+    Value: "40%",
+    Level: "Dự bị Đại học | Chứng chỉ (Diploma)",
+    State: "Victoria",
+    Country: "ÚC",
+    Booth: "22",
+  },
+  {
+    Scholarship_ID: "S235",
+    Name: "Faculty of IT International Merit Scholarship",
+    Institution: "Monash University",
+    Value: "20%",
+    Level: "Đại học",
+    State: "Victoria",
+    Country: "ÚC",
+    Booth: "22",
+  },
+  {
+    Scholarship_ID: "S236",
+    Name: "Global Curtin Scholarships – Merit Scholarship",
+    Institution: "Curtin University",
+    Value: "20%",
+    Level: "Đại Học | Sau Đại Học",
+    State: "Western Australia",
+    Country: "ÚC",
+    Booth: "HCM",
+  },
+  {
+    Scholarship_ID: "S237",
+    Name: "John Curtin Global Excellence Scholarship",
+    Institution: "Curtin University",
+    Value: "40%",
+    Level: "Đại Học | Sau Đại Học",
+    State: "Western Australia",
+    Country: "ÚC",
+    Booth: "HCM",
+  },
+  {
+    Scholarship_ID: "S238",
+    Name: "Học Bổng Tiếng Anh",
+    Institution: "Curtin University",
+    Value: "7,496 AUD",
+    Level: "Đại Học | Sau Đại Học",
+    State: "Western Australia",
+    Country: "ÚC",
+    Booth: "HCM",
+  },
+  {
+    Scholarship_ID: "S239",
+    Name: "Curtin Global Future Leadership",
+    Institution: "Curtin University",
+    Value: "12,500 AUD",
+    Level: "Đại Học | Sau Đại Học",
+    State: "Western Australia",
+    Country: "ÚC",
+    Booth: "HCM",
+  },
+  {
+    Scholarship_ID: "S240",
+    Name: "Global Scholars Program",
+    Institution: "Curtin University",
+    Value: "15,000 AUD",
+    Level: "Đại Học",
+    State: "Western Australia",
+    Country: "ÚC",
+    Booth: "HCM",
+  },
+  {
+    Scholarship_ID: "S241",
+    Name: "International Regional Entrance Scholarship",
+    Institution: "Langara College",
+    Value: "7,500 CAD",
+    Level: "Đại Học",
+    State: "Canada",
+    Country: "Nhiều QG",
+    Booth: "HCM",
   },
 ];
