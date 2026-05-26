@@ -8,7 +8,7 @@ export default function HomeTab({ onNavigate }) {
       <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
         {[
           { l: "Trường", v: "50+", i: "🎓" },
-          { l: "Học bổng", v: "70+", i: "🏆" },
+          { l: "Học bổng", v: "100+", i: "🏆" },
         ].map((s) => (
           <div
             key={s.l}

@@ -202,7 +202,7 @@ export const universities = [
       "./logos/20_torrens-university-australia.webp",
       import.meta.url,
     ).href,
-    Name: "Torrens University Australia",
+    Name: "Torrens University",
     Rank: "",
     State: "New South Wales",
     Booth: "5",

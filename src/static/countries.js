@@ -21,7 +21,7 @@ export const countries = [
         highlight: "Thủ đô văn hóa, giáo dục hàng đầu nước Úc.",
         schools: [
           "Macquarie University",
-          "Torrens University Australia",
+          "Torrens University",
           "Southern Cross University",
           "University of New South Wales",
           "University of Newcastle",
@@ -180,16 +180,16 @@ export const countries = [
           "INTO Group",
           "Navitas Group",
         ],
-        orgDetails: {
-          "Kaplan International":
-            "Chuyên cung cấp lộ trình vào các trường hàng đầu tại Mỹ, Canada và Anh Quốc.",
-          "Study Group":
-            "Đối tác chiến lược của nhiều đại học danh giá tại Úc, Mỹ, Anh, New Zealand và Châu Âu.",
-          "INTO Group":
-            "Hỗ trợ sinh viên quốc tế vào các trường đại học nghiên cứu hàng đầu tại Mỹ, Anh và Úc.",
-          "Navitas Group":
-            "Mạng lưới giáo dục khổng lồ với chương trình chuyển tiếp tại Úc, NZ, Singapore và nhiều nơi khác.",
-        },
+        // orgDetails: {
+        //   "Kaplan International":
+        //     "Chuyên cung cấp lộ trình vào các trường hàng đầu tại Mỹ, Canada và Anh Quốc.",
+        //   "Study Group":
+        //     "Đối tác chiến lược của nhiều đại học danh giá tại Úc, Mỹ, Anh, New Zealand và Châu Âu.",
+        //   "INTO Group":
+        //     "Hỗ trợ sinh viên quốc tế vào các trường đại học nghiên cứu hàng đầu tại Mỹ, Anh và Úc.",
+        //   "Navitas Group":
+        //     "Mạng lưới giáo dục khổng lồ với chương trình chuyển tiếp tại Úc, NZ, Singapore và nhiều nơi khác.",
+        // },
       },
     ],
   },

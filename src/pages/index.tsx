@@ -11,11 +11,32 @@ import SchoolModal from "@/modals/SchoolModal";
 import ScholarshipModal from "@/modals/ScholarshipModal";
 // import InteractMap from "@/tabs/interactMap";
 export default function App() {
+  const [navHistory, setNavHistory] = useState([]);
   const [tab, setTab] = useState("home");
+  const [selectedMajor, setSelectedMajor] = useState(null);
+
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [selectedScholarship, setSelectedScholarship] = useState(null);
   const [scholarshipSearch, setScholarshipSearch] = useState("");
   const [schoolTabCountry, setSchoolTabCountry] = useState("AU");
+
+  const canGoBack = navHistory.length > 0;
+
+  // ── Navigation helpers ────────────────────────────────────────────────────
+  const push = (newTab, newMajor = null) => {
+    if (newTab === tab && newMajor === selectedMajor) return;
+    setNavHistory((h) => [...h, { tab, selectedMajor }]);
+    setTab(newTab);
+    setSelectedMajor(newMajor);
+  };
+
+  const goBack = () => {
+    if (navHistory.length === 0) return;
+    const prev = navHistory[navHistory.length - 1];
+    setNavHistory((h) => h.slice(0, -1));
+    setTab(prev.tab);
+    setSelectedMajor(prev.selectedMajor);
+  };
 
   const handleTabChange = (newTab) => {
     setTab(newTab);
@@ -33,6 +54,7 @@ export default function App() {
       setSchoolTabCountry(options.country);
     }
   };
+  // const handleSelectMajor = (major) => push("majors", major);
 
   const openScholarshipsForSchool = (schoolName) => {
     setSelectedSchool(null);
@@ -58,7 +80,13 @@ export default function App() {
         input  { font-family: inherit; }
       `}</style>
 
-      <Header />
+      {/* Header: hero on home, nav bar on sub-pages */}
+      <Header
+        canGoBack={canGoBack}
+        onBack={goBack}
+        tab={tab}
+        selectedMajor={selectedMajor}
+      />
 
       <div style={{ padding: "0 16px" }}>
         {tab === "home" && <HomeTab onNavigate={handleNavigate} />}

@@ -47,7 +47,7 @@ export const majors = [
         schools: [
           "Adelaide University",
           "Flinders University",
-          "Torrens University Australia",
+          "Torrens University",
         ],
       },
       {
@@ -244,7 +244,7 @@ export const majors = [
       {
         label: "🇦🇺 Bang New South Wales & Nam Úc",
         schools: [
-          "Torrens University Australia",
+          "Torrens University",
           "Southern Cross University",
           "University of Wollongong Australia",
         ],

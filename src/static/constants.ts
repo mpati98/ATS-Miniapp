@@ -52,6 +52,14 @@ export const navItems = [
           { t: "map", icon: "🗺️", label: "Sơ đồ" },
         ];
 
+// ── Page title mapping ─────────────────────────────────────────────────────────
+export const PAGE_TITLES = {
+  home:          null,          // home → show hero banner
+  schools:       "Trường học",
+  majors:        "Ngành học",
+  scholarships:  "Học bổng",
+  map:           "Sơ đồ booth",
+};
 
 export const ZONE_META = {
   SA:      { label: "Nam Úc · Adelaide",              color: "#E07B00", bg: "#FFF3E0", flag: "🇦🇺" },

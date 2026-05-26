@@ -23,14 +23,14 @@ const getSchoolLogoUrl = (school) => {
   return resolveLogoUrl(logo);
 };
 
-const getSchoolLink = (school) => {
-  if (!school) return null;
-  return (
-    school.link ||
-    universities.find((u) => u.Name === school.name)?.Link ||
-    null
-  );
-};
+// const getSchoolLink = (school) => {
+//   if (!school) return null;
+//   return (
+//     school.link ||
+//     universities.find((u) => u.Name === school.name)?.Link ||
+//     null
+//   );
+// };
 
 const getSchoolState = (school) => {
   if (!school) return null;
@@ -70,7 +70,7 @@ export default function SchoolModal({ school, onClose, onOpenScholarships }) {
 
   if (!school) return null;
 
-  const schoolLink = getSchoolLink(school);
+  // const schoolLink = getSchoolLink(school);
   const schoolRank = getSchoolRank(school);
   const schoolState = getSchoolState(school);
   const schoolBooth = getSchoolBooth(school);
@@ -78,14 +78,6 @@ export default function SchoolModal({ school, onClose, onOpenScholarships }) {
 
   const relatedScholarships = getRelatedScholarships(school);
   const relatedPreview = relatedScholarships.slice(0, 2);
-
-  const handleOpenLink = () => {
-    if (schoolLink) {
-      window.open(schoolLink, "_blank");
-    } else {
-      onClose?.();
-    }
-  };
 
   const handleOpenScholarshipTab = () => {
     onClose?.();
@@ -209,18 +201,6 @@ export default function SchoolModal({ school, onClose, onOpenScholarships }) {
             📍 Booth {schoolBooth}
           </div>
         </div>
-        {/* <div
-          style={{
-            background: BRAND.lightBlue,
-            borderRadius: 12,
-            padding: 12,
-            marginBottom: 16,
-          }}
-        >
-          {/* <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.blue }}>
-            💡 Trường đang có nhiều học bổng, xem ngay!
-          </div> 
-        </div> */}
 
         <div style={{ marginBottom: 16 }}>
           <div
@@ -287,27 +267,10 @@ export default function SchoolModal({ school, onClose, onOpenScholarships }) {
             fontSize: 15,
             border: "none",
             cursor: "pointer",
-            marginBottom: schoolLink ? 10 : 0,
+            marginBottom: 0,
           }}
         >
           Xem học bổng của trường
-        </button>
-
-        <button
-          onClick={handleOpenLink}
-          style={{
-            width: "100%",
-            padding: 12,
-            borderRadius: 12,
-            background: schoolLink ? "#1a1a2e" : BRAND.blue,
-            color: "white",
-            fontWeight: 800,
-            fontSize: 15,
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          {schoolLink ? "Xem thông tin chi tiết" : "Đóng"}
         </button>
       </div>
     </div>
